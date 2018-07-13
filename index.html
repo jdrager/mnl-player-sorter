@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="shortcut icon" href="http://static.tumblr.com/8rqtw6r/FdTo313i1/favicon.png">
-<title>Kindred Spirits on the Roof Character Sorter</title>
+<title>MNL Player Sorter</title>
 <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta http-equiv="Content-Script-Type" content="text/javascript">
@@ -52,9 +51,6 @@ font-family: 'Josefin Slab', erif;
 }
 html {
 min-height: 100%;
-background:
-url(http://static.tumblr.com/8rqtw6r/LOuo313p5/bkg-front.png),
-url(http://static.tumblr.com/8rqtw6r/ZK9o313p0/bkg-back.jpg);
 background-position: bottom, center;
 background-size: 100%, cover;
 background-repeat: no-repeat, no-repeat; 
@@ -69,22 +65,65 @@ background-repeat: no-repeat, no-repeat;
 // Insert characters below!!
 
 var namMember = new Array(
-"Ariu Aki<br><img src=https://40.media.tumblr.com/90febd11189f2a896e49c8896937d15f/tumblr_inline_o30z71eiZd1r8b7bs_540.png>",
-"Ano Fuji<br><img src=https://56.media.tumblr.com/749af0306fa41ef64f4b5e860cea3955/tumblr_inline_o30z71FP1h1r8b7bs_540.png>",
-"Komano Hina<br><img src=https://41.media.tumblr.com/f86c28697eb81c9b3a71d98f3cdc613a/tumblr_inline_o30z72k0A51r8b7bs_540.png>",
-"Tsurugimine Kiri<br><img src=https://41.media.tumblr.com/726efaf564fa55d9fa45d036ab4d25c7/tumblr_inline_o30z73JEYC1r8b7bs_540.png>",
-"Amishima Matsuri<br><img src=https://41.media.tumblr.com/2f446d3f1e9a278de20933cecb78265c/tumblr_inline_o30z733H0p1r8b7bs_540.png>",
-"Nagatani Megumi<br><img src=https://40.media.tumblr.com/34abab1a9461955accd5c76678556ead/tumblr_inline_o30z73j1Dy1r8b7bs_540.png>",
-"Aihara Miki<br><img src=https://41.media.tumblr.com/f8e48513c3003b52b16ed58dab73fb69/tumblr_inline_o30z74ZRnO1r8b7bs_540.png>",
-"Inamoto Miyu<br><img src=https://40.media.tumblr.com/ae882e3c0613d87081c729bcd70b4a90/tumblr_inline_o30z74RNT11r8b7bs_540.png>",
-"Miyama Nena<br><img src=https://36.media.tumblr.com/cc51617cbb29b7c2c2dfbe0e966356b7/tumblr_inline_o30z74rZVB1r8b7bs_540.png>",
-"Enoki Sachi<br><img src=https://40.media.tumblr.com/ab5b6a2f353998410a5f9b545a626cb8/tumblr_inline_o30z75SfyA1r8b7bs_540.png>",
-"Futano Sasa<br><img src=https://56.media.tumblr.com/5a0ee9e30224246e22eb92e73fcaee97/tumblr_inline_o30z75YnCC1r8b7bs_540.png>",
-"Maki Seina<br><img src=https://41.media.tumblr.com/03ff5a0a8a53cb3154bcc7e8aad825e5/tumblr_inline_o30z75dwx71r8b7bs_540.png>",
-"Sonou Tsukuyou<br><img src=https://56.media.tumblr.com/9c5facee280ae10fc57356250de50294/tumblr_inline_o30z76FInb1r8b7bs_540.png>",
-"Ichiki Umi<br><img src=https://41.media.tumblr.com/5302721e56337def96563502e0449e55/tumblr_inline_o30z76gjfd1r8b7bs_540.png>",
-"Koba Yuka<br><img src=https://40.media.tumblr.com/24a892d08eb945bab0dd7ae74d47a7d9/tumblr_inline_o30z76G0K61r8b7bs_540.png>",
-"Toomi Yuna<br><img src=https://40.media.tumblr.com/d1bfbe97dc94173319f42be32561055b/tumblr_inline_o30z76pPqV1r8b7bs_540.png>"
+"Proctor",
+"Sugar",
+"Pistol Pete",
+"Bin",
+"ShaunE",
+"McCrackin",
+"Peso",
+"Antioch",
+"Kimmel",
+"Serda",
+"Rattler",
+"Turtle Tim",
+"Starr",
+"DaveP",
+"Darren",
+"Chad",
+"QTip",
+"Skillman",
+"Gio",
+"House",
+"Chris Taylor",
+"McShannock",
+"Tyerone",
+"Joe Ellis",
+"Weaver",
+"Marvin",
+"AllanZ",
+"The Mountain",
+"Manny",
+"DougEFresh",
+"Cipps",
+"Balasia",
+"Brandt",
+"Brauny",
+"Suokas",
+"Coan",
+"Brennan",
+"LePoudre",
+"Busta",
+"Turnbull",
+"Maff",
+"Myers",
+"Whoop",
+"Olivere",
+"Leroy",
+"Neville",
+"Pearcy",
+"Shepherd",
+"Gibb",
+"Drago",
+"Ryan Allen",
+"Hal",
+"CMachi",
+"Vinande",
+"Wright",
+"Wilke",
+"Panty Dropper",
+"Jumpin Jim",
+"SMachi"
 );
 
 // Insert characters above!!
@@ -281,16 +320,13 @@ var str = "";
 var i;
 
 str += "<table style=\"background:rgba(255,255,255,0.8); font-size:14px; line-height:120%; margin-left:auto; margin-right:auto; border:1px solid #000; border-collapse:collapse\" align=\"center\">";
-str += "<tr><td style=\"color:#ffffff; background-color:#000; text-align:center;\">Rank<\/td><td style=\"color:#ffffff; background-color:#000; text-align:center;\">Character<\/td><\/tr>";
+str += "<tr><td style=\"color:#ffffff; background-color:#000; text-align:center;\">Rank<\/td><td style=\"color:#ffffff; background-color:#000; text-align:center;\">Player<\/td><\/tr>";
 
 for (i=0; i<namMember.length; i++) {
 var tmp;
-if (ranking <= 3) {
+
 	tmp = namMember[lstMember[0][i]];
-}
-else
-	var nameEnd = namMember[lstMember[0][i]].indexOf('<');
-	tmp = namMember[lstMember[0][i]].substr(0, nameEnd);
+
 str += "<tr><td style=\"border:1px solid #000; text-align:center; padding-right:0px;\">"+ranking+"<\/td><td style=\"border:1px solid #000; padding-left:0px;\">"+tmp+"<\/td><\/tr>";
 if (i<namMember.length-1) {
 if (equal[lstMember[0][i]]==lstMember[0][i+1]) {
@@ -308,7 +344,7 @@ document.getElementById("resultField").innerHTML = str;
 
 //Indicates two elements to compare+++++++++++++++++++++++++++++++++++
 function showImage() {
-var str0 = "Date #"+numQuestion+"<br>"+Math.floor(finishSize*100/totalSize)+"% sorted.";
+var str0 = "Question #"+numQuestion+"<br>"+Math.floor(finishSize*100/totalSize)+"% sorted.";
 var str1 = ""+toNameFace(lstMember[cmp1][head1]);
 var str2 = ""+toNameFace(lstMember[cmp2][head2]);
 
@@ -336,26 +372,25 @@ return str;
 
 <!-- Upper Text/Instructions -->
 <p class="instructions">
-<center><b>Welcome to the Kindred Spirits on the Roof Character Sorter!</b><br>
-<small>Instructions: Don't be half-assed in love.<br>
-Throw away your worries and let your heart decide.</small></center>
+<center><b>MNL Player Sorter</b><br>
+<small>Instructions: Answer every comparison question</small></center>
 </p>
 
 <!-- Main Table -->
 <table id="mainTable" align="center">
 <tbody><tr>
-<td id="battleNumber" colspan="3" style="padding-bottom: 10px;" style="text-align:center;"><b>Date #1<br>0% sorted.</b></td>
+<td id="battleNumber" colspan="3" style="padding-bottom: 10px;" style="text-align:center;"><b>Question #1<br>0% sorted.</b></td>
 </tr>
 <tr>
 <td id="leftField" onclick="if(finishFlag==0) sortList(-1);" rowspan="2" style="background:rgba(255,255,255,0.6); text-align:center;"></td>
 <td class="middleField" onclick="if(finishFlag==0) sortList(0);" style="background:rgba(255,255,255,0.6); text-align:center;">
-<small>I love both!</small>
+<small>Too Close to Pick</small>
 </td>
 <td id="rightField" onclick="if(finishFlag==0) sortList(1);" rowspan="2"style="background:rgba(255,255,255,0.6); text-align:center;"></td>
 </tr>
 <tr>
 <td class="middleField" onclick="if(finishFlag==0) sortList(0);"style="background:rgba(255,255,255,0.6); text-align:center;">
-<small>I can't choose!</small>
+<small>I don't know</small>
 </td>
 </tr>
 </tbody></table>
@@ -372,14 +407,11 @@ showImage();
 //-->
 
 
-<!-- Lower Text -->
 </script>
 <center>
 <table class="other" style="background:rgba(255,255,255,0.6); text-align: center;"><td>
 <small>
-made by <a href=http://twitter.com/ShionKamiya>hazr</a><br/>
 code taken from <a href="http://mostlypoptarts.tumblr.com/">mostlypoptarts</a><br />
-images from <a href=http://mangagamer.org/kindredspirits/>MangaGamer</a>
 </small>
 </td></table>
 </center>
