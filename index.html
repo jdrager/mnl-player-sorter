@@ -1,423 +1,449 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>MNL Player Sorter</title>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
-<meta http-equiv="Content-Style-Type" content="text/css">
-<meta http-equiv="Content-Script-Type" content="text/javascript">
+	<title>MNL Player Sorter</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
 
-<style type="text/css">
-<!--
-#mainTable{
-font-size: 19px;
-font-family: 'Josefin Slab', serif;
-text-align: center;
-vertical-align: middle;
-margin-left: auto;
-margin-right: auto;
-border-collapse: separate;
-border-spacing: 5px 5px;
-}
-#leftField{
-width: 150px;
-height: 246px;
-border: 1px solid #000;
-cursor: pointer;
-}
-#rightField{
-width: 150px;
-height: 246px;
-border: 1px solid #000;
-cursor: pointer;
-}
-.middleField{
-width: 127px;
-height: 127px;
-border: 1px solid #000;
-cursor: pointer;
-}
-a{
-color: #5b17ba;
-text-decoration : none;
-}
-a:hover{
-color: #945ce3;
-}
-body {
-width: 460px;
-height: 100%;
-margin: 0 auto;
-font-family: 'Josefin Slab', erif;
-}
-html {
-min-height: 100%;
-background-position: bottom, center;
-background-size: 100%, cover;
-background-repeat: no-repeat, no-repeat; 
-}
--->
-</style>
+	<style type="text/css">
+		<!--
+		#mainTable {
+			font-size: 19px;
+			font-family: 'Josefin Slab', serif;
+			text-align: center;
+			vertical-align: middle;
+			margin-left: auto;
+			margin-right: auto;
+			border-collapse: separate;
+			border-spacing: 5px 5px;
+		}
 
-<script type="text/javascript">
+		#leftField {
+			width: 150px;
+			height: 246px;
+			border: 1px solid #000;
+			cursor: pointer;
+		}
 
-<!--
+		#rightField {
+			width: 150px;
+			height: 246px;
+			border: 1px solid #000;
+			cursor: pointer;
+		}
 
-// Insert characters below!!
+		.middleField {
+			width: 127px;
+			height: 127px;
+			border: 1px solid #000;
+			cursor: pointer;
+		}
 
-var namMember = new Array(
-"Proctor",
-"Sugar",
-"Pistol Pete",
-"Bin",
-"ShaunE",
-"McCrackin",
-	"Trent",
-	
-	
-"Peso",
-"Antioch",
-"Kimmel",
-"Serda",
-"Rattler",
-"Turtle Tim",
-"Starr",
-"DaveP",
-"Darren",
-"Chad",
-"QTip",
-"Skillman",
-"Gio",
-"House",
-"Chris Taylor",
-"McShannock",
-"Tyerone",
-"Joe Ellis",
-"Weaver",
-"Marvin",
-"AllanZ",
-"The Mountain",
-"Manny",
-"DougEFresh",
-"Cipps",
-"Balasia",
-"Brandt",
-"Brauny",
-"Suokas",
-"Troy",
-"Brennan",
-"LePoudre",
-"Busta",
-"Turnbull",
-"Maff",
-"Myers",
-"Whoop",
-"Olivere",
-"Leroy",
-"Neville",
-"Pearcy",
-"Shepherd",
-"Gibb",
-"Drago",
-"Ryan Allen",
-"Hal",
-"CMachi",
-"Vinande",
-"Wright",
-"Wilke",
-"Panty Dropper",
-"Jumpin Jim",
-"SMachi"
-);
+		a {
+			color: #5b17ba;
+			text-decoration: none;
+		}
 
-// Insert characters above!!
+		a:hover {
+			color: #945ce3;
+		}
 
-//*********************************************************
+		body {
+			width: 460px;
+			height: 100%;
+			margin: 0 auto;
+			font-family: 'Josefin Slab', erif;
+		}
 
-var lstMember = new Array();
-var parent = new Array();
-var equal = new Array();
-var rec = new Array();
-var cmp1,cmp2;
-var head1,head2;
-var nrec;
+		html {
+			min-height: 100%;
+			background-position: bottom, center;
+			background-size: 100%, cover;
+			background-repeat: no-repeat, no-repeat;
+		}
+		-->
+	</style>
 
-var numQuestion;
-var totalSize;
-var finishSize;
-var finishFlag;
+	<script type="text/javascript">
+		<!--
+		// Insert characters below!!
 
-//The initialization of the variable+++++++++++++++++++++++++++++++++++++++++++++
-function initList(){
-var n = 0;
-var mid;
-var i;
+		var namMember = new Array(
+			"Paul Proctor",
+			"Shawn Hardy",
+			"Pete Niphoratos",
+			"Andrew Dion",
+			"Shaun Eisenmenger",
+			"Jack Serda",
+			"Andy Femminineo",
+			"Trent Young",
+			"Darren Cunningham",
+			"Paul Biliti",
+			"Dave Judge",
+			"Chris Taylor",
+			"Paul Antioch",
+			"John Starr",
+			"Dan Ratliff",
+			"Ryan Monette",
+			"Giorgio Orlandi",
+			"Tim D'Onofrio",
+			"Charlie Gram",
+			"Chase McCrackin",
+			"Tim Kimmell",
+			"Dave Podolan",
+			"Jason McShannock",
+			"Jeff Skillman",
+			"Tim Braunscheidel",
+			"Cory Zauner",
+			"AJ Powers",
+			"Mitch Rivet",
+			"John Eidt",
+			"Tom Phillips",
+			"Allan Zamierowski",
+			"Marvin Booker",
+			"Doug Millson",
+			"Brian Edge",
+			"Kyle Bauer",
+			"Matt LePoudre",
+			"David Turnbull",
+			"Eric Lapoudre",
+			"Brian Balasia",
+			"Adam Suokas",
+			"Joe Brennan",
+			"Joe Ellis",
+			"Dave Cipparone",
+			"Jason Leroy",
+			"Mike Shephard",
+			"Ryan Maffesoli",
+			"Brian LeRoy",
+			"Bryan Madaleno",
+			"Troy Otto",
+			"Michael Pikora",
+			"Brian Pearcy",
+			"Nick Myers",
+			"Jim Weaver",
+			"Todd Otto",
+			"Kevin Olivere",
+			"Jeremy Drager",
+			"Colin Neville",
+			"Bob Gibb",
+			"Ryan Allen",
+			"Andy Dragovic",
+			"Brian Bustamante",
+			"Dave Vinande",
+			"Tye Otto",
+			"Scott Wilke",
+			"Justin Wright",
+			"Matt Crnkovich",
+			"Charles Machi",
+			"Jim Ellis",
+			"Hal Doherty",
+			"Sam Machi"
+		);
 
-//The sequence that you should sort
-lstMember[n] = new Array();
-for (i=0; i<namMember.length; i++) {
-lstMember[n][i] = i;
-}
-parent[n] = -1;
-totalSize = 0;
-n++;
+		// Insert characters above!!
 
-for (i=0; i<lstMember.length; i++) {
-//And element divides it in two/more than two
-//Increase divided sequence of last in first member
-if(lstMember[i].length>=2) {
-mid = Math.ceil(lstMember[i].length/2);
-lstMember[n] = new Array();
-lstMember[n] = lstMember[i].slice(0,mid);
-totalSize += lstMember[n].length;
-parent[n] = i;
-n++;
-lstMember[n] = new Array();
-lstMember[n] = lstMember[i].slice(mid,lstMember[i].length);
-totalSize += lstMember[n].length;
-parent[n] = i;
-n++;
-}
-}
+		//*********************************************************
 
-//Preserve this sequence
-for (i=0; i<namMember.length; i++) {
-rec[i] = 0;
-}
-nrec = 0;
+		var lstMember = new Array();
+		var parent = new Array();
+		var equal = new Array();
+		var rec = new Array();
+		var cmp1, cmp2;
+		var head1, head2;
+		var nrec;
 
-//List that keeps your results
-//Value of link initial
-// Value of link initial
-for (i=0; i<=namMember.length; i++) {
-equal[i] = -1;
-}
+		var numQuestion;
+		var totalSize;
+		var finishSize;
+		var finishFlag;
 
-cmp1 = lstMember.length-2;
-cmp2 = lstMember.length-1;
-head1 = 0;
-head2 = 0;
-numQuestion = 1;
-finishSize = 0;
-finishFlag = 0;
-}
+		//The initialization of the variable+++++++++++++++++++++++++++++++++++++++++++++
+		function initList() {
+			var n = 0;
+			var mid;
+			var i;
 
-//&#12522;&#12473;&#12488;&#12398;&#12477;&#12540;&#12488;+++++++++++++++++++++++++++++++++++++++++++
-//flag&#65306;Don't know characters
-// -1&#65306;Chose the left
-// 0&#65306;Tie
-// 1&#65306;Chose the right
-function sortList(flag){
-var i;
-var str;
+			//The sequence that you should sort
+			lstMember[n] = new Array();
+			for (i = 0; i < namMember.length; i++) {
+				lstMember[n][i] = i;
+			}
+			parent[n] = -1;
+			totalSize = 0;
+			n++;
 
-//rec preservation
-if (flag<0) {
-rec[nrec] = lstMember[cmp1][head1];
-head1++;
-nrec++;
-finishSize++;
-while (equal[rec[nrec-1]]!=-1) {
-rec[nrec] = lstMember[cmp1][head1];
-head1++;
-nrec++;
-finishSize++;
-}
-}
-else if (flag>0) {
-rec[nrec] = lstMember[cmp2][head2];
-head2++;
-nrec++;
-finishSize++;
-while (equal[rec[nrec-1]]!=-1) {
-rec[nrec] = lstMember[cmp2][head2];
-head2++;
-nrec++;
-finishSize++;
-}
-}
-else {
-rec[nrec] = lstMember[cmp1][head1];
-head1++;
-nrec++;
-finishSize++;
-while (equal[rec[nrec-1]]!=-1) {
-rec[nrec] = lstMember[cmp1][head1];
-head1++;
-nrec++;
-finishSize++;
-}
-equal[rec[nrec-1]] = lstMember[cmp2][head2];
-rec[nrec] = lstMember[cmp2][head2];
-head2++;
-nrec++;
-finishSize++;
-while (equal[rec[nrec-1]]!=-1) {
-rec[nrec] = lstMember[cmp2][head2];
-head2++;
-nrec++;
-finishSize++;
-}
-}
+			for (i = 0; i < lstMember.length; i++) {
+				//And element divides it in two/more than two
+				//Increase divided sequence of last in first member
+				if (lstMember[i].length >= 2) {
+					mid = Math.ceil(lstMember[i].length / 2);
+					lstMember[n] = new Array();
+					lstMember[n] = lstMember[i].slice(0, mid);
+					totalSize += lstMember[n].length;
+					parent[n] = i;
+					n++;
+					lstMember[n] = new Array();
+					lstMember[n] = lstMember[i].slice(mid, lstMember[i].length);
+					totalSize += lstMember[n].length;
+					parent[n] = i;
+					n++;
+				}
+			}
 
-//Processing after finishing with one list
-if (head1<lstMember[cmp1].length && head2==lstMember[cmp2].length) {
-//List the remainder of cmp2 copies, list cmp1 copies when finished scanning
-while (head1<lstMember[cmp1].length){
-rec[nrec] = lstMember[cmp1][head1];
-head1++;
-nrec++;
-finishSize++;
-}
-}
-else if (head1==lstMember[cmp1].length && head2<lstMember[cmp2].length) {
-//List the remainder of cmp1 copies, list cmp2 copies when finished scanning
-while (head2<lstMember[cmp2].length){
-rec[nrec] = lstMember[cmp2][head2];
-head2++;
-nrec++;
-finishSize++;
-}
-}
+			//Preserve this sequence
+			for (i = 0; i < namMember.length; i++) {
+				rec[i] = 0;
+			}
+			nrec = 0;
 
-//When it arrives at the end of both lists
-//Update a pro list
-if (head1==lstMember[cmp1].length && head2==lstMember[cmp2].length) {
-for (i=0; i<lstMember[cmp1].length+lstMember[cmp2].length; i++) {
-lstMember[parent[cmp1]][i] = rec[i];
-}
-lstMember.pop();
-lstMember.pop();
-cmp1 = cmp1-2;
-cmp2 = cmp2-2;
-head1 = 0;
-head2 = 0;
+			//List that keeps your results
+			//Value of link initial
+			// Value of link initial
+			for (i = 0; i <= namMember.length; i++) {
+				equal[i] = -1;
+			}
 
-//Initialize the rec before performing the new comparison
-if (head1==0 && head2==0) {
-for (i=0; i<namMember.length; i++) {
-rec[i] = 0;
-}
-nrec = 0;
-}
-}
+			cmp1 = lstMember.length - 2;
+			cmp2 = lstMember.length - 1;
+			head1 = 0;
+			head2 = 0;
+			numQuestion = 1;
+			finishSize = 0;
+			finishFlag = 0;
+		}
 
-if (cmp1<0) {
-str = "Date #"+(numQuestion-1)+"<br>"+Math.floor(finishSize*100/totalSize)+"% sorted.";
-document.getElementById("battleNumber").innerHTML = str;
+		//&#12522;&#12473;&#12488;&#12398;&#12477;&#12540;&#12488;+++++++++++++++++++++++++++++++++++++++++++
+		//flag&#65306;Don't know characters
+		// -1&#65306;Chose the left
+		// 0&#65306;Tie
+		// 1&#65306;Chose the right
+		function sortList(flag) {
+			var i;
+			var str;
 
-showResult();
-finishFlag = 1;
-}
-else {
-showImage();
-}
-}
+			//rec preservation
+			if (flag < 0) {
+				rec[nrec] = lstMember[cmp1][head1];
+				head1++;
+				nrec++;
+				finishSize++;
+				while (equal[rec[nrec - 1]] != -1) {
+					rec[nrec] = lstMember[cmp1][head1];
+					head1++;
+					nrec++;
+					finishSize++;
+				}
+			} else if (flag > 0) {
+				rec[nrec] = lstMember[cmp2][head2];
+				head2++;
+				nrec++;
+				finishSize++;
+				while (equal[rec[nrec - 1]] != -1) {
+					rec[nrec] = lstMember[cmp2][head2];
+					head2++;
+					nrec++;
+					finishSize++;
+				}
+			} else {
+				rec[nrec] = lstMember[cmp1][head1];
+				head1++;
+				nrec++;
+				finishSize++;
+				while (equal[rec[nrec - 1]] != -1) {
+					rec[nrec] = lstMember[cmp1][head1];
+					head1++;
+					nrec++;
+					finishSize++;
+				}
+				equal[rec[nrec - 1]] = lstMember[cmp2][head2];
+				rec[nrec] = lstMember[cmp2][head2];
+				head2++;
+				nrec++;
+				finishSize++;
+				while (equal[rec[nrec - 1]] != -1) {
+					rec[nrec] = lstMember[cmp2][head2];
+					head2++;
+					nrec++;
+					finishSize++;
+				}
+			}
 
-//The results+++++++++++++++++++++++++++++++++++++++++++++++
-//&#38918;&#20301;=Rank/Grade/Position/Standing/Status
-//&#21517;&#21069;=Identification term
-function showResult() {
-var ranking = 1;
-var sameRank = 1;
-var str = "";
-var i;
+			//Processing after finishing with one list
+			if (head1 < lstMember[cmp1].length && head2 == lstMember[cmp2].length) {
+				//List the remainder of cmp2 copies, list cmp1 copies when finished scanning
+				while (head1 < lstMember[cmp1].length) {
+					rec[nrec] = lstMember[cmp1][head1];
+					head1++;
+					nrec++;
+					finishSize++;
+				}
+			} else if (head1 == lstMember[cmp1].length && head2 < lstMember[cmp2].length) {
+				//List the remainder of cmp1 copies, list cmp2 copies when finished scanning
+				while (head2 < lstMember[cmp2].length) {
+					rec[nrec] = lstMember[cmp2][head2];
+					head2++;
+					nrec++;
+					finishSize++;
+				}
+			}
 
-str += "<table style=\"background:rgba(255,255,255,0.8); font-size:14px; line-height:120%; margin-left:auto; margin-right:auto; border:1px solid #000; border-collapse:collapse\" align=\"center\">";
-str += "<tr><td style=\"color:#ffffff; background-color:#000; text-align:center;\">Rank<\/td><td style=\"color:#ffffff; background-color:#000; text-align:center;\">Player<\/td><\/tr>";
+			//When it arrives at the end of both lists
+			//Update a pro list
+			if (head1 == lstMember[cmp1].length && head2 == lstMember[cmp2].length) {
+				for (i = 0; i < lstMember[cmp1].length + lstMember[cmp2].length; i++) {
+					lstMember[parent[cmp1]][i] = rec[i];
+				}
+				lstMember.pop();
+				lstMember.pop();
+				cmp1 = cmp1 - 2;
+				cmp2 = cmp2 - 2;
+				head1 = 0;
+				head2 = 0;
 
-for (i=0; i<namMember.length; i++) {
-var tmp;
+				//Initialize the rec before performing the new comparison
+				if (head1 == 0 && head2 == 0) {
+					for (i = 0; i < namMember.length; i++) {
+						rec[i] = 0;
+					}
+					nrec = 0;
+				}
+			}
 
-	tmp = namMember[lstMember[0][i]];
+			if (cmp1 < 0) {
+				str = "Date #" + (numQuestion - 1) + "<br>" + Math.floor(finishSize * 100 / totalSize) + "% sorted.";
+				document.getElementById("battleNumber").innerHTML = str;
 
-str += "<tr><td style=\"border:1px solid #000; text-align:center; padding-right:0px;\">"+ranking+"<\/td><td style=\"border:1px solid #000; padding-left:0px;\">"+tmp+"<\/td><\/tr>";
-if (i<namMember.length-1) {
-if (equal[lstMember[0][i]]==lstMember[0][i+1]) {
-sameRank++;
-} else {
-ranking += sameRank;
-sameRank = 1;
-}
-}
-}
-str += "<\/table>";
+				showResult();
+				finishFlag = 1;
+			} else {
+				showImage();
+			}
+		}
 
-document.getElementById("resultField").innerHTML = str;
-}
+		//The results+++++++++++++++++++++++++++++++++++++++++++++++
+		//&#38918;&#20301;=Rank/Grade/Position/Standing/Status
+		//&#21517;&#21069;=Identification term
+		function showResult() {
+			var ranking = 1;
+			var sameRank = 1;
+			var str = "";
+			var i;
 
-//Indicates two elements to compare+++++++++++++++++++++++++++++++++++
-function showImage() {
-var str0 = "Question #"+numQuestion+"<br>"+Math.floor(finishSize*100/totalSize)+"% sorted.";
-var str1 = ""+toNameFace(lstMember[cmp1][head1]);
-var str2 = ""+toNameFace(lstMember[cmp2][head2]);
+			str +=
+				"<table style=\"background:rgba(255,255,255,0.8); font-size:14px; line-height:120%; margin-left:auto; margin-right:auto; border:1px solid #000; border-collapse:collapse\" align=\"center\">";
+			str +=
+				"<tr><td style=\"color:#ffffff; background-color:#000; text-align:center;\">Rank<\/td><td style=\"color:#ffffff; background-color:#000; text-align:center;\">Player<\/td><\/tr>";
 
-document.getElementById("battleNumber").innerHTML = str0;
-document.getElementById("leftField").innerHTML = "<small>"+str1+"</small>";
-document.getElementById("rightField").innerHTML = "<small>"+str2+"</small>";
+			for (i = 0; i < namMember.length; i++) {
+				var tmp;
 
-numQuestion++;
-}
+				tmp = namMember[lstMember[0][i]];
 
-//Convert numeric value into a name (emoticon)+++++++++++++++++++++++++++++++
-function toNameFace(n){
-var str = namMember[n];
+				str += "<tr><td style=\"border:1px solid #000; text-align:center; padding-right:0px;\">" + ranking +
+					"<\/td><td style=\"border:1px solid #000; padding-left:0px;\">" + tmp + "<\/td><\/tr>";
+				if (i < namMember.length - 1) {
+					if (equal[lstMember[0][i]] == lstMember[0][i + 1]) {
+						sameRank++;
+					} else {
+						ranking += sameRank;
+						sameRank = 1;
+					}
+				}
+			}
+			str += "<\/table>";
 
-/*
-str += '<br />';
-switch(n) {
-//case -1 Because it is a sample, delete it
-case -1: str+=""; break;
-}*/
-return str;
-}
-//-->
-</script>
+			document.getElementById("resultField").innerHTML = str;
+		}
 
-<!-- Upper Text/Instructions -->
-<p class="instructions">
-<center><b>MNL Player Sorter</b><br>
-<small>Instructions: Answer every comparison question</small></center>
-</p>
+		//Indicates two elements to compare+++++++++++++++++++++++++++++++++++
+		function showImage() {
+			var str0 = "Question #" + numQuestion + "<br>" + Math.floor(finishSize * 100 / totalSize) + "% sorted.";
+			var str1 = "" + toNameFace(lstMember[cmp1][head1]);
+			var str2 = "" + toNameFace(lstMember[cmp2][head2]);
 
-<!-- Main Table -->
-<table id="mainTable" align="center">
-<tbody><tr>
-<td id="battleNumber" colspan="3" style="padding-bottom: 10px;" style="text-align:center;"><b>Question #1<br>0% sorted.</b></td>
-</tr>
-<tr>
-<td id="leftField" onclick="if(finishFlag==0) sortList(-1);" rowspan="2" style="background:rgba(255,255,255,0.6); text-align:center;"></td>
-<td class="middleField" onclick="if(finishFlag==0) sortList(0);" style="background:rgba(255,255,255,0.6); text-align:center;">
-<small>Too Close to Pick</small>
-</td>
-<td id="rightField" onclick="if(finishFlag==0) sortList(1);" rowspan="2"style="background:rgba(255,255,255,0.6); text-align:center;"></td>
-</tr>
-<tr>
-<td class="middleField" onclick="if(finishFlag==0) sortList(0);"style="background:rgba(255,255,255,0.6); text-align:center;">
-<small>I don't know</small>
-</td>
-</tr>
-</tbody></table>
-<br>
+			document.getElementById("battleNumber").innerHTML = str0;
+			document.getElementById("leftField").innerHTML = "<small>" + str1 + "</small>";
+			document.getElementById("rightField").innerHTML = "<small>" + str2 + "</small>";
 
-<!-- Results Table -->
-<div id="resultField" style="text-align: center;">
-</div>
-<br>
-<script type="text/javascript">
-<!--
-initList();
-showImage();
-//-->
+			numQuestion++;
+		}
+
+		//Convert numeric value into a name (emoticon)+++++++++++++++++++++++++++++++
+		function toNameFace(n) {
+			var str = namMember[n];
+
+			/*
+			str += '<br />';
+			switch(n) {
+			//case -1 Because it is a sample, delete it
+			case -1: str+=""; break;
+			}*/
+			return str;
+		}
+		//
+		-->
+	</script>
+
+	<!-- Upper Text/Instructions -->
+	<p class="instructions">
+		<img src="http://mnlhl.com/img/mnlhl-logo.png"
+		<center><b>MNL Player Sorter</b><br>
+			<small>Instructions: Answer every comparison question</small></center>
+	</p>
+
+	<!-- Main Table -->
+	<table id="mainTable" align="center">
+		<tbody>
+			<tr>
+				<td id="battleNumber" colspan="3" style="padding-bottom: 10px;" style="text-align:center;"><b>Question #1<br>0%
+						sorted.</b></td>
+			</tr>
+			<tr>
+				<td id="leftField" onclick="if(finishFlag==0) sortList(-1);" rowspan="2"
+					style="background:rgba(255,255,255,0.6); text-align:center;"></td>
+				<td class="middleField" onclick="if(finishFlag==0) sortList(0);"
+					style="background:rgba(255,255,255,0.6); text-align:center;">
+					<small>Too Close to Pick</small>
+				</td>
+				<td id="rightField" onclick="if(finishFlag==0) sortList(1);" rowspan="2"
+					style="background:rgba(255,255,255,0.6); text-align:center;"></td>
+			</tr>
+			<tr>
+				<td class="middleField" onclick="if(finishFlag==0) sortList(0);"
+					style="background:rgba(255,255,255,0.6); text-align:center;">
+					<small>I don't know</small>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<br>
+
+	<!-- Results Table -->
+	<div id="resultField" style="text-align: center;">
+	</div>
+	<br>
+	<script type="text/javascript">
+		<!--
+		initList();
+		showImage();
+		//
+		-->
 
 
-</script>
-<center>
-<table class="other" style="background:rgba(255,255,255,0.6); text-align: center;"><td>
-<small>
-code taken from <a href="http://mostlypoptarts.tumblr.com/">mostlypoptarts</a><br />
-</small>
-</td></table>
-</center>
+	</script>
+	<center>
+		<table class="other" style="background:rgba(255,255,255,0.6); text-align: center;">
+			<td>
+				<small>
+					code taken from <a href="http://mostlypoptarts.tumblr.com/">mostlypoptarts</a><br />
+				</small>
+			</td>
+		</table>
+	</center>
 
-</body>
+	</body>
+
 </html>
