@@ -61,81 +61,77 @@ background-repeat: no-repeat, no-repeat;
 
 <script type="text/javascript">
 
-<!--
-
-// Insert characters below!!
-
 var namMember = new Array(
-"Matt Taylor",
-"Paul Proctor",
-"Shawn Hardy",
-"Pete Niphoratos",
-"Shaun Eisenmenger",
-"Jack Serda",
-"Andy Femminineo",
-"Darren Cunningham",
-"Trent Young",
+"AllanZ",
+"Antioch",
+"Bauer",
+"Bin",
+"Brauny",
+"Busta",
+"Chad",
 "Chris Taylor",
-"Paul Biliti",
-"John Starr",
-"Dave Judge",
-"Paul Antioch",
-"Dan Ratliff",
-"Ryan Monette",
-"Tim D'Onofrio",
-"Charlie Gram",
-"Giorgio Orlandi",
-"Chase McCrackin",
-"Tim Kimmell",
-"Cory Zauner",
-"Dave Podolan",
-"Mitch Rivet",
-"Jason McShannock",
-"Tim Braunscheidel",
-"Jeff Skillman",
-"AJ Powers",
-"John Eidt",
-"Tom Phillips",
-"Allan Zamierowski",
-"Marvin Booker",
-"Doug Millson",
-"Brian Stone",
-"Kyle Bauer",
-"Matt LePoudre",
-"David Turnbull",
-"Eric Lapoudre",
-"Brian Balasia",
-"Adam Soukas",
-"Joe Brennan",
-"Joe Ellis",
-"Bryan Madaleno",
-"James Wrubel",
-"Mike Shephard",
-"Troy Otto",
-"Ryan Maffesoli",
-"Dave Cipparone",
-"Brian Leroy",
-"Jeremy Drager",
-"Brian Pearcy",
-"Todd Otto",
-"Jim Weaver",
-"Nick Myers",
-"Ryan Allen",
-"Kevin Olivere",
-"Colin Neville",
-"Bob Gibb",
-"Brian Bustamante",
-"Tye Otto",
-"Michael Pikora",
-"Andy Dragovic",
-"Dave Vinande",
-"Scott Wilkie",
-"Justin Wright",
+"Cipps",
+"CMachi",
+"Coan",
+"Crunk",
+"DaveP",
+"DougEFresh",
+"Drager",
+"Drago",
+"Edge",
+"Eidt",
+"Eric Lepoudre",
+"Femm",
+"Gibb",
+"Gio",
+"Gumma",
+"Hock",
+"JFlo",
 "Jim Ellis",
-"Matt Crnkovich",
-"Charles Machi",
-"Hal Doherty",
-"Sam Machi"
+"Joe Ellis",
+"Judge",
+"Kimmel",
+"Leroy",
+"Maff",
+"Manny",
+"Marvin",
+"Matt Lepoudre",
+"Matt Taylor",
+"McShannock",
+"Myers",
+"Neville",
+"Olivere",
+"Pearcy",
+"Pelot",
+"Peso",
+"Pfister",
+"Pistol",
+"Proctor",
+"RAllen",
+"Rattler",
+"Rutkowski",
+"Serda",
+"ShaunE",
+"Shepard",
+"Sikorski",
+"Simonelli",
+"Skillman",
+"Starr",
+"Sugar",
+"Suits",
+"Suokas",
+"Trent",
+"Troy",
+"Turnbull",
+"Turtle Tim",
+"Tye",
+"Vinande",
+"Weaver",
+"Whoop",
+"Wilkie",
+"Wood",
+"Wright",
+"Wrubel",
 );
 
 // Insert characters above!!
@@ -288,8 +284,8 @@ finishSize++;
 }
 }
 
-//When it arrives at the end of both lists
-//Update a pro list
+// When it arrives at the end of both lists
+// Update a pro list
 if (head1==lstMember[cmp1].length && head2==lstMember[cmp2].length) {
 for (i=0; i<lstMember[cmp1].length+lstMember[cmp2].length; i++) {
 lstMember[parent[cmp1]][i] = rec[i];
@@ -301,7 +297,7 @@ cmp2 = cmp2-2;
 head1 = 0;
 head2 = 0;
 
-//Initialize the rec before performing the new comparison
+// Initialize the rec before performing the new comparison
 if (head1==0 && head2==0) {
 for (i=0; i<namMember.length; i++) {
 rec[i] = 0;
@@ -322,9 +318,9 @@ showImage();
 }
 }
 
-//The results+++++++++++++++++++++++++++++++++++++++++++++++
-//&#38918;&#20301;=Rank/Grade/Position/Standing/Status
-//&#21517;&#21069;=Identification term
+// The results+++++++++++++++++++++++++++++++++++++++++++++++
+// &#38918;&#20301;=Rank/Grade/Position/Standing/Status
+// &#21517;&#21069;=Identification term
 function showResult() {
 var ranking = 1;
 var sameRank = 1;
@@ -354,7 +350,7 @@ str += "<\/table>";
 document.getElementById("resultField").innerHTML = str;
 }
 
-//Indicates two elements to compare+++++++++++++++++++++++++++++++++++
+// Indicates two elements to compare+++++++++++++++++++++++++++++++++++
 function showImage() {
 var str0 = "Question #"+numQuestion+"<br>"+Math.floor(finishSize*100/totalSize)+"% sorted.";
 var str1 = ""+toNameFace(lstMember[cmp1][head1]);
@@ -413,20 +409,9 @@ return str;
 </div>
 <br>
 <script type="text/javascript">
-<!--
+
 initList();
 showImage();
-//-->
-
-
 </script>
-<center>
-<table class="other" style="background:rgba(255,255,255,0.6); text-align: center;"><td>
-<small>
-code taken from <a href="http://mostlypoptarts.tumblr.com/">mostlypoptarts</a><br />
-</small>
-</td></table>
-</center>
-
 </body>
 </html>
