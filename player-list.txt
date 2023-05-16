@@ -1,14 +1,18 @@
 Adam Suokas
 Alan Simonelli
+Alex Kruso
 Allan Z
 Andy Femminineo
 Bob Gibb
-Brandon Batchelder 
+Brandon Batchelder
+Brandt Miller
+Brett Knybel
 Brian Antioch
-Brian Bustamante
+Brian Larivee
 Brian Pearcy
 Chad Paulinski
 Charles Machi
+Christian Pfister
 Crunk
 Dan Ratliff
 DaveP
@@ -19,6 +23,7 @@ David Vinande
 Doug E. Fresh
 Drager
 Drago
+Drake Braun
 Dylan
 Eric LePoudre
 Gumma
@@ -28,7 +33,6 @@ Jason McShannock
 Jeff Skillman
 Jeremy Coan
 Jim Ellis
-Jim weaver
 JoeE
 John Floreno
 Judge
@@ -37,13 +41,12 @@ Kyle Bauer
 Lee Hughes
 Leroy
 Maff
-Manny
 Matt LePoudre 
 Michael Shepard
-Michael sikorsky 
+Michael Sikorsky 
 Neville
 Nick Myers
-Old man Eidt
+Old Man Eidt
 Paul Antioch
 Paul Biliti
 Paul Proctor
@@ -56,6 +59,7 @@ Rick Merritt
 ShaunE
 Shawn Hardy
 Tim Braunschiedel
+Tim Kimmel
 Trent Young
 Troy 
 Turtle
@@ -63,8 +67,4 @@ Tye Otto
 Uncle Whoop
 Wood
 Wrubel
-Drake Braun
-Brett
-Brian Larivee
 Zach Hartkop
-Alex Kruso
