@@ -70,76 +70,76 @@
   <script type="text/javascript">
 
     var namMember = new Array(
-      "Allan Z",
-      "Bauer",
-      "Bin",
-      "Brandt",
-      "Brauny",
-      "Brett",
-      "Brian Antioch",
-      "Chad",
-      "Charles",
-      "Cipps",
-      "Coach B",
-      "Crunk",
-      "DaveP",
-      "Doug",
-      "Drager",
-      "Drago",
-      "Drake",
-      "Dylan",
-      "Eidt",
-      "Eric LePoudre",
-      "Femm",
-      "Gibb",
-      "Gumma",
-      "Hal",
-      "Hartkop",
-      "Hetes",
-      "JFlo",
-      "JimE",
-      "JoeE",
-      "Judge",
-      "Kimmel",
-      "Kruso",
-      "Larivee",
-      "Lee",
-      "Leroy",
-      "Maff",
-      "Matt Lepoudre",
-      "McShannock",
-      "Myers",
-      "Neville",
-      "Paul Antioch",
-      "Pearcy",
-      "Pelot",
-      "Peso",
-      "Pete",
-      "Pfister",
-      "Proctor",
-      "Q",
-      "Rallen",
-      "Rattler",
       "Rick",
-      "Rutkowski",
-      "Serda",
-      "ShaunE",
-      "Shephard",
-      "Sikorsky",
-      "Simonelli",
-      "Skillman",
+      "Brett",
+      "Proctor",
+      "Drake",
+      "Pfister",
       "Sugar",
-      "Suokas",
+      "ShaunE",
+      "Femm",
       "Trent",
+      "Serda",
+      "Pete",
+      "Bin",
+      "Judge",
+      "JFlo",
+      "Wrubel",
+      "Skillman",
+      "Peso",
+      "PAntioch",
+      "Turtle Tim",
+      "Matt Lepoudre",
+      "Rattler",
+      "BAntioch",
+      "Rutkowski",
+      "Chad",
+      "Larivee",
+      "Brandt",
+      "Kimmel",
+      "DaveP",
+      "Dylan",
+      "McShannock",
+      "Shep",
+      "Eric Lepoudre",
+      "Woodsie",
       "Troy",
+      "AllanZ",
+      "Coan",
+      "Pelot",
+      "Pearcy",
+      "Crunk",
+      "Suokas",
+      "Cipps",
+      "Eidt",
+      "Sikorsky",
+      "CoachB",
+      "Hetes",
+      "QTip",
+      "Drager",
       "Turnbull",
-      "Turtle",
-      "Tye",
-      "Vinande",
+      "Brauny",
+      "Doug",
       "Whoop",
-      "Wood",
-      "Wright",
-      "Wrubel"
+      "Hughes",
+      "Tye",
+      "JoeE",
+      "Myers",
+      "Kruso",
+      "Leroy",
+      "Simonelli",
+      "Neville",
+      "RAllen",
+      "Hartkop",
+      "Busta",
+      "Maff",
+      "Vinande",
+      "Drago",
+      "Gumma",
+      "Gibb",
+      "JimE",
+      "Charles",
+      "Hal"
     );
 
     // Insert characters above!!
@@ -332,7 +332,7 @@
     function showResult() {
       var ranking = 1;
       var sameRank = 1;
-      var str = "";
+      var str = "", emailStr = "";
       var i;
 
       str += "<table style=\"background:rgba(255,255,255,0.8); font-size:14px; line-height:120%; margin-left:auto; margin-right:auto; border:1px solid #000; border-collapse:collapse\" align=\"center\">";
@@ -344,6 +344,8 @@
         tmp = namMember[lstMember[0][i]];
 
         str += "<tr><td style=\"border:1px solid #000; text-align:center; padding-right:0px;\">" + ranking + "<\/td><td style=\"border:1px solid #000; padding-left:0px;\">" + tmp + "<\/td><\/tr>";
+        emailStr += ranking + ". " + tmp + "%0D";
+
         if (i < namMember.length - 1) {
           if (equal[lstMember[0][i]] == lstMember[0][i + 1]) {
             sameRank++;
@@ -354,10 +356,12 @@
         }
       }
       str += "<\/table>";
+      
+      document.getElementById("resultField").innerHTML = "<a href=\"mailto:jdrager2@gmail.com?subject=My Player Rankings&body=" + emailStr + "\">Email to Drager</a> <hr/>" + str;
 
-      document.getElementById("resultField").innerHTML = str;
-      console.log(str);
+      console.log(emailStr);
     }
+
 
     // Indicates two elements to compare+++++++++++++++++++++++++++++++++++
     function showImage() {
@@ -384,12 +388,13 @@
       }*/
       return str;
     }
-//-->
+    //-->
   </script>
 </head>
 
-<body>
+<body style="text-align: center">
   <!-- Upper Text/Instructions -->
+   <img src="https://mnlhl.com/0fb5eaa2f4461cd1afbc.png" style="height: 100px" />
   <p class="instructions">
     <center><b>MNL Player Sorter</b><br>
       <small>Instructions: Answer every comparison question</small>
@@ -405,17 +410,17 @@
       </tr>
       <tr>
         <td id="leftField" onclick="if(finishFlag==0) sortList(-1);" rowspan="2"
-          style="background:rgba(255,255,255,0.6); text-align:center;"></td>
+          style="background:rgba(255,255,255,0.6); text-align:center; border-radius: 5px;"></td>
         <td class="middleField" onclick="if(finishFlag==0) sortList(0);"
-          style="background:rgba(255,255,255,0.6); text-align:center;">
+          style="background:rgba(255,255,255,0.6); text-align:center; border-radius: 5px;">
           <small>Too Close to Pick</small>
         </td>
         <td id="rightField" onclick="if(finishFlag==0) sortList(1);" rowspan="2"
-          style="background:rgba(255,255,255,0.6); text-align:center;"></td>
+          style="background:rgba(255,255,255,0.6); text-align:center; border-radius: 5px;"></td>
       </tr>
       <tr>
         <td class="middleField" onclick="if(finishFlag==0) sortList(0);"
-          style="background:rgba(255,255,255,0.6); text-align:center;">
+          style="background:rgba(255,255,255,0.6); text-align:center; border-radius: 5px;">
           <small>I don't know</small>
         </td>
       </tr>
@@ -426,6 +431,7 @@
   <!-- Results Table -->
   <div id="resultField" style="text-align: center;">
   </div>
+
   <br>
   <script type="text/javascript">
     initList();
